@@ -1,0 +1,12 @@
+{
+  "name": "proyectofinal-backend",
+  "version": "1.0.0",
+  "description": "Backend del Proyecto final del curso de React Avanzado de Rolling Code School",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Grupo 4 - Lucas Capdevila, Federico Alvarez, Mariana Cervantes, Marcelo Frias",
+  "license": "ISC"
+}
