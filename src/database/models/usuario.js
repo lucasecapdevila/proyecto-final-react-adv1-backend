@@ -14,9 +14,9 @@ const usuarioSchema = new Schema({
   rol: {
     type: String,
     enum: ["Administrador", "Médico", "Paciente"],
-    default: "Usuario",
+    default: "Paciente",
   }
 })
 
-const Usuario = mongoose.model('Usuario', usuarioSchema)
+const Usuario = mongoose.model('usuario', usuarioSchema)
 export default Usuario
