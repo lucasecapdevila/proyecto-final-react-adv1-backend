@@ -1,6 +1,5 @@
 import mongoose, { Schema } from "mongoose";
 
-
 const turnoSchema = new Schema({
   paciente: {
     type: Schema.Types.ObjectId,
