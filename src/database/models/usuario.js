@@ -7,14 +7,10 @@ const usuarioSchema = new Schema({
     required: true,
     unique: true
   },
-  contrasenaUsuario: {
-    type: String,
-    required: true,
-  },
   rol: {
     type: String,
     enum: ["Administrador", "Médico", "Paciente"],
-    default: "Paciente",
+    default: "Médico",
   }
 })
 

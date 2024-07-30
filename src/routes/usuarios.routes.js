@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { actualizarUsuario, crearUsuario, eliminarUsuario, listarUsuarios, obtenerUsuario } from "../controllers/usuario.controllers.js";
 
-
 const usuariosRouter = Router()
 
 usuariosRouter.route('/usuarios').get(listarUsuarios).post(crearUsuario)

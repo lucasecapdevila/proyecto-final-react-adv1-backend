@@ -1,10 +1,8 @@
 import Turno from "../database/models/turno.js"
-import Usuario from "../database/models/usuario.js";
-
 
 export const listarTurnos = async(req, res) => {
   try {
-    const listaTurnos = await Turno.find()
+    const listaTurnos = await Turno.find().populate('doctor', 'nombreUsuario rol').populate('paciente', 'nombreUsuario rol')
     res.status(200).json(listaTurnos)
   } catch (error) {
     console.error(error);
@@ -27,13 +25,16 @@ export const obtenerTurno = async(req, res) => {
 
 export const crearTurno = async(req, res) => {
   try {
-    const doctor = await Usuario.findById(req.body.usuario)
-    if(!doctor){
-      return res.status(404).json({ mensaje: 'No existe un médico con esa ID' })
-    }
-    req.body.nombreDoctor = doctor.nombreUsuario
+    const {paciente, doctor, fecha, hora, notas } = req.body
+    console.log(doctor);
 
-    const nuevoTurno = new Turno(req.body)
+    const nuevoTurno = new Turno({
+      paciente,
+      doctor,
+      fecha: new Date(fecha),
+      hora,
+      notas
+    })
     await nuevoTurno.save()
     res.status(201).json({ mensaje: 'Turno creado'})
   } catch (error) {

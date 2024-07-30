@@ -12,9 +12,9 @@ const turnoSchema = new Schema({
     ref: "usuario",
     required: true
   },
-  dia: {
+  fecha: {
     type: Date,
-    required: true,
+    required: true
   },
   hora: {
     type: String,
@@ -22,9 +22,8 @@ const turnoSchema = new Schema({
   },
   notas: {
     type: String,
-    default: '',
   }
 })
 
-const Turno = mongoose.model('Usuario', turnoSchema)
+const Turno = mongoose.model('Turno', turnoSchema)
 export default Turno
