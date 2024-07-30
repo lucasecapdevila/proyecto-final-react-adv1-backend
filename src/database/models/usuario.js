@@ -2,12 +2,36 @@ import mongoose, { Schema } from "mongoose";
 
 
 const usuarioSchema = new Schema({
-  nombreUsuario: {
+  email: {
     type: String,
-    required: true,
+    require: true,
     unique: true
   },
-  rol: {
+  name: {
+    type: String,
+    required: true,
+  },
+  specialty: {
+    type: String,
+  },
+  mp: {
+    type: Number
+  },
+  bio: {
+    type: String
+  },
+  centroMedico: {
+    type: Schema.Types.ObjectId,
+    ref: "centroMedico"
+  },
+  hours: {
+    type: String,
+  },
+  phone: {
+    type: String,
+    require: true
+  },
+  role: {
     type: String,
     enum: ["Administrador", "Médico", "Paciente"],
     default: "Médico",
