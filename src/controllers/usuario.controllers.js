@@ -27,7 +27,7 @@ export const crearUsuario = async(req, res) => {
   try {
     const nuevoUsuario = new Usuario(req.body)
     await nuevoUsuario.save()
-    res.status(201).json( {mensaje: 'Usuario creado'})
+    res.status(201).json({mensaje: 'Usuario creado'})
   } catch (error) {
     console.error(error);
     res.status(500).json({ mensaje: 'Error al crear el usuario' })
@@ -50,10 +50,11 @@ export const actualizarUsuario = async(req, res) => {
 
 export const eliminarUsuario = async(req, res) => {
   try {
-    const usuarioBuscado = await Usuario.findByIdAndDelete(req.params.id)
+    const usuarioBuscado = await Usuario.findById(req.params.id)
     if(!usuarioBuscado){
       return res.status(404).json({ mensaje: 'No existe un usuario con esa ID' })
     }
+    await Usuario.findByIdAndDelete(req.params.id)
     res.status(200).json({ mensaje: 'Usuario eliminado' })
   } catch (error) {
     console.error(error);
