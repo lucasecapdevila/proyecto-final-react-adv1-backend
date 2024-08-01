@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import './src/database/db.js'
 import usuariosRouter from './src/routes/usuarios.routes.js';
 import turnosRouter from './src/routes/turnos.routes.js';
+import centroMedicoRouter from './src/routes/centroMedico.routes.js';
 
 
 const app = express()
@@ -26,3 +27,4 @@ app.use(express.static(path.join(__dirname, '/public')))
 
 app.use('/api', usuariosRouter)
 app.use('/api', turnosRouter)
+app.use('/api', centroMedicoRouter)

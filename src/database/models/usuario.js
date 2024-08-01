@@ -10,6 +10,10 @@ const usuarioSchema = new Schema({
     type: String,
     required: true,
   },
+  password: {
+    type: String,
+    required: true,
+  },
   specialty: {
     type: String,
   },
@@ -28,12 +32,15 @@ const usuarioSchema = new Schema({
   },
   phone: {
     type: String,
-    require: true
+  },
+  verified: {
+    type: Boolean,
+    default: false
   },
   role: {
     type: String,
-    enum: ["Administrador", "Médico", "Paciente"],
-    default: "Médico",
+    enum: ["Administrador", "Doctor", "Paciente"],
+    default: "Paciente",
   }
 })
 

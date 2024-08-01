@@ -12,6 +12,9 @@ const centroMedicoSchema = new Schema({
   earth: {
     type: String,
   },
+  email: {
+    type: String,
+  },
   phone: {
     type: String,
     required: true,

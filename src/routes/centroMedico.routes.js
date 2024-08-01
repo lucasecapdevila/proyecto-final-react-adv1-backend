@@ -3,7 +3,7 @@ import { actualizarCentroMedico, crearCentroMedico, eliminarCentroMedico, listar
 
 const centroMedicoRouter = Router()
 
-centroMedicoRouter.get('/centrosMedicos').get(listarCentrosMedicos).post(crearCentroMedico)
-centroMedicoRouter.get('/centrosMedicos/:id').get(obtenerCentroMedico).put(actualizarCentroMedico).delete(eliminarCentroMedico)
+centroMedicoRouter.route('/centrosMedicos').get(listarCentrosMedicos).post(crearCentroMedico)
+centroMedicoRouter.route('/centrosMedicos/:id').get(obtenerCentroMedico).put(actualizarCentroMedico).delete(eliminarCentroMedico)
 
 export default centroMedicoRouter;
