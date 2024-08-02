@@ -27,5 +27,5 @@ const centroMedicoSchema = new Schema({
   },
 })
 
-const CentroMedico = mongoose.model('CentroMedico', centroMedicoSchema)
+const CentroMedico = mongoose.model('centroMedico', centroMedicoSchema)
 export default CentroMedico
