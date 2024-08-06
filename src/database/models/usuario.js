@@ -6,11 +6,11 @@ const usuarioSchema = new Schema({
     require: true,
     unique: true
   },
-  name: {
+  password: {
     type: String,
     required: true,
   },
-  password: {
+  name: {
     type: String,
     required: true,
   },
@@ -32,6 +32,12 @@ const usuarioSchema = new Schema({
   },
   phone: {
     type: String,
+  },
+  address: {
+    type: String,
+  },
+  img: {
+    type: String
   },
   verified: {
     type: Boolean,

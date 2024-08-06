@@ -25,6 +25,11 @@ export const obtenerUsuario = async(req, res) => {
 
 export const crearUsuario = async(req, res) => {
   try {
+    const {email} = req.body
+    const existeEmail = await Usuario.findOne({ email });
+    if (existeEmail) {
+      return res.status(400).json({mensaje: "Ya existe un usuario con el correo electrónico enviado"});
+    }
     const nuevoUsuario = new Usuario(req.body)
     await nuevoUsuario.save()
     res.status(201).json({mensaje: 'Usuario creado'})
@@ -33,6 +38,22 @@ export const crearUsuario = async(req, res) => {
     res.status(500).json({ mensaje: 'Error al crear el usuario' })
   }
 }
+
+export const login = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const existeEmail = await Usuario.findOne({ email });
+    if (!existeEmail) {
+      return res.status(400).json({ mensaje: "Correo o password incorrectos" });
+    }
+    res.status(200).json({mensaje: "Login exitoso"});
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      mensaje: "Error al intentar loguear un usuario.",
+    });
+  }
+};
 
 export const actualizarUsuario = async(req, res) => {
   try {

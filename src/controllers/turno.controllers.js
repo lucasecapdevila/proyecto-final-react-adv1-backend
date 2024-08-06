@@ -31,7 +31,7 @@ export const crearTurno = async(req, res) => {
     const nuevoTurno = new Turno({
       paciente,
       doctor,
-      fecha: new Date(fecha),
+      fecha,
       hora,
       notas
     })

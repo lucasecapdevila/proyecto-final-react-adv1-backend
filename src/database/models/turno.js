@@ -12,8 +12,9 @@ const turnoSchema = new Schema({
     required: true
   },
   fecha: {
-    type: String,
-    default: Date.toLocaleString()
+    type: Date,
+    required: true,
+    // default: Date.toLocaleString()
   },
   hora: {
     type: String,
