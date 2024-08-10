@@ -42,11 +42,11 @@ export const crearUsuario = async(req, res) => {
 export const login = async (req, res) => {
   try {
     const { email } = req.body;
-    const existeEmail = await Usuario.findOne({ email });
-    if (!existeEmail) {
+    const user = await Usuario.findOne({ email });
+    if (!user) {
       return res.status(400).json({ mensaje: "Correo o password incorrectos" });
     }
-    res.status(200).json({mensaje: "Login exitoso"});
+    return res.status(200).json(user, {mensaje: "Login exitoso" });
   } catch (error) {
     console.error(error);
     res.status(500).json({
