@@ -43,10 +43,11 @@ export const login = async (req, res) => {
   try {
     const { email } = req.body;
     const user = await Usuario.findOne({ email });
+    console.log(email)
     if (!user) {
       return res.status(400).json({ mensaje: "Correo o password incorrectos" });
     }
-    return res.status(200).json(user, {mensaje: "Login exitoso" });
+    res.status(200).json(user);
   } catch (error) {
     console.error(error);
     res.status(500).json({
