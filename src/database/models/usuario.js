@@ -14,6 +14,14 @@ const usuarioSchema = new Schema({
     type: String,
     required: true,
   },
+  phone: {
+    type: String,
+    required: true,
+  },
+  address: {
+    type: String,
+    required: true,
+  },
   specialty: {
     type: String,
   },
@@ -28,12 +36,6 @@ const usuarioSchema = new Schema({
     ref: "centroMedico"
   },
   hours: {
-    type: String,
-  },
-  phone: {
-    type: String,
-  },
-  address: {
     type: String,
   },
   img: {
